@@ -14,6 +14,7 @@ import com.ahmedorabi.githubapp.data.api.Resource
 import com.ahmedorabi.githubapp.databinding.FragmentHomeBinding
 import com.ahmedorabi.githubapp.di.Injectable
 import com.ahmedorabi.githubapp.ui.adapter.RepoAdapter
+import com.ahmedorabi.githubapp.utils.EspressoIdlingResource
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -41,7 +42,7 @@ class HomeFragment : Fragment(), Injectable {
         viewModel = ViewModelProvider(this, viewModelFactory)
             .get(HomeViewModel::class.java)
 
-        
+
         viewModel.items.observe(viewLifecycleOwner, {
             it?.let { resource ->
 
@@ -56,17 +57,11 @@ class HomeFragment : Fragment(), Injectable {
                         binding.recyclerViewMain.visibility = View.VISIBLE
 
 
+                        EspressoIdlingResource.decrement()
                         val adapter = RepoAdapter()
                         adapter.submitList(resource.data!!.items)
                         binding.recyclerViewMain.adapter = adapter
 
-//                        val adapter = ArticleAdapter(articleCallback)
-//
-//                        resource.data?.let {
-//                            EspressoIdlingResource.decrement()
-//                            adapter.submitList(resource.data.results)
-//                            binding.recyclerViewMain.adapter = adapter
-//                        }
 
                     }
                     Resource.Status.ERROR -> {
@@ -91,7 +86,7 @@ class HomeFragment : Fragment(), Injectable {
 
         binding.searchView.isActivated = true
         binding.searchView.onActionViewExpanded()
-        binding.searchView.isIconified = true
+        binding.searchView.isIconified = false
         binding.searchView.clearFocus()
 
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -100,7 +95,8 @@ class HomeFragment : Fragment(), Injectable {
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
-                //   homeViewModel.queryChannel.offer(newText)
+                EspressoIdlingResource.increment()
+
                 viewModel.query.value = newText
                 return false
             }
