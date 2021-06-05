@@ -8,7 +8,6 @@ plugins {
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
-    // flavorDimensions "version"
 
     defaultConfig {
         applicationId "com.ahmedorabi.githubapp"
@@ -26,43 +25,26 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
-//        debug {
-//            debuggable true
-//            minifyEnabled true
-//            shrinkResources true
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//        }
-//        minifiedDebug {
-//            versionNameSuffix ".dev"
-//            debuggable true
-//            minifyEnabled true
-//            shrinkResources true
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//
-//        }
-
     }
 
-    flavorDimensions "default"
+    flavorDimensions "dev"
     productFlavors {
         dev {
-            //  dimension "version"
-            //    applicationId "com.ahmedorabi.githubapp.dev"
-            //  buildConfigField "String", "BASE_URL", '"https://api.github.com/"'
-
-            //   versionNameSuffix ".deve"
-            //  versionCode 1
+            dimension "dev"
+            manifestPlaceholders variant: 'Dev'
+            applicationIdSuffix ".dev"
+            versionNameSuffix ".dev"
 
         }
         pro {
-            //  dimension "version"
-            //  applicationId "com.ahmedorabi.githubapp.pro"
-            //   buildConfigField "String", "BASE_URL", '"https://api.github.com/"'
-            //  versionCode 2
-
-            //  versionNameSuffix ".prod"
+            dimension "dev"
+            manifestPlaceholders variant: 'Pro'
+            applicationIdSuffix ".pro"
+            versionNameSuffix ".prod"
         }
     }
+
+
 
     sourceSets {
         main {

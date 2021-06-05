@@ -29,14 +29,13 @@ class HomeRepo @Inject constructor(
 
         return flow {
 
-
             val apiResponse = safeApiCall(dispatcher) {
                 apiService.getRepositoriesAsync(q)
             }
 
             when (apiResponse) {
                 is ResultWrapper.Success -> {
-                    repoDao.deleteAllRepos()
+                    repoDao.deleteAllRepos(q)
                     repoDao.insertRepos(apiResponse.value.items)
                     emit(
                         ResultWrapper.Success(
