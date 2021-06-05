@@ -82,8 +82,6 @@ class HomeFragment : Fragment(), Injectable {
     }
 
     private fun initSearchBar() {
-        //locationsList.adapter = locationAdapter
-
         binding.searchView.isActivated = true
         binding.searchView.onActionViewExpanded()
         binding.searchView.isIconified = false

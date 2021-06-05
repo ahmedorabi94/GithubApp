@@ -27,7 +27,6 @@ data class Item(
 
     val description: String?,
 
-
 //    val disabled: Boolean,
 //    val downloads_url: String,
 //    val events_url: String,
@@ -60,22 +59,13 @@ data class Item(
 //    val merges_url: String,
 //    val milestones_url: String,
 //    val mirror_url: Any,
-
-
     val name: String,
-
-
-
 //    val node_id: String,
 //    val notifications_url: String,
 //    val open_issues: Int,
 //    val open_issues_count: Int,
-
-
     @Embedded
     val owner: Owner,
-
-
 //    val `private`: Boolean,
 //    val pulls_url: String,
 //    val pushed_at: String,

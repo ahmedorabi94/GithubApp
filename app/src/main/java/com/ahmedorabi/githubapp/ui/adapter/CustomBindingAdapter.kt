@@ -14,25 +14,6 @@ fun LoadImage(imageView: ImageView, item: Item) {
             val url = owner.avatar_url
             Glide.with(imageView.context).load(url).into(imageView)
         }
-
-
-//        if (it.media != null) {
-//            if (it.media!!.isNotEmpty()) {
-//                val meta = it.media!![0]
-//
-//                if (meta.mediaMetadata != null) {
-//                    if (meta.mediaMetadata!!.isNotEmpty()) {
-//                        val metaData = meta.mediaMetadata!![0]
-//                        Glide.with(imageView.context).load(metaData.url).into(imageView)
-//                    }
-//
-//                }
-//
-//
-//            }
-//        }
-
-
     }
 
 
