@@ -11,10 +11,10 @@ interface RepoDao {
     @Insert
     suspend fun insertRepos(items: List<Item>)
 
-    @Query("Select * from repo where name LIKE :q")
+    @Query("Select * from repo where name LIKE '%' || :q || '%'")
     fun getAllRepos(q: String): List<Item>
 
 
-    @Query("Delete from repo where name =:q")
+    @Query("Delete from repo where name LIKE '%' || :q || '%'")
     suspend fun deleteAllRepos(q: String)
 }
