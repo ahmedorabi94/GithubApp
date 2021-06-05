@@ -1,4 +1,5 @@
 # GithubApp
+A simple app to search for repositories on GitHub and show a list of repos. 
 
 
 
