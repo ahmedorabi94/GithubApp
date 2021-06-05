@@ -14,8 +14,6 @@ import javax.inject.Inject
 import javax.inject.Named
 
 class HomeRepo @Inject constructor(
-    @Named("realApiService")
-    private val apiService: ApiService,
     @Named("MockApiService") private val apiServiceFake: ApiService, private val repoDao: RepoDao
 ) {
 
@@ -31,7 +29,7 @@ class HomeRepo @Inject constructor(
 
 
             val apiResponse = safeApiCall(dispatcher) {
-                apiService.getRepositoriesAsync(q)
+                apiServiceFake.getRepositoriesAsync(q)
             }
 
             when (apiResponse) {

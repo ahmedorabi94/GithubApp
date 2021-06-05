@@ -8,7 +8,7 @@ plugins {
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
-   // flavorDimensions "version"
+    // flavorDimensions "version"
 
     defaultConfig {
         applicationId "com.ahmedorabi.githubapp"
@@ -32,20 +32,56 @@ android {
 //            shrinkResources true
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 //        }
+//        minifiedDebug {
+//            versionNameSuffix ".dev"
+//            debuggable true
+//            minifyEnabled true
+//            shrinkResources true
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//
+//        }
 
     }
 
-//    productFlavors {
-//        full {
-//            dimension = "version"
-//            versionCode 1
-//        }
-//        demo {
-//            dimension = "version"
-//            versionCode 2
-//        }
-//
-//    }
+    flavorDimensions "default"
+    productFlavors {
+        dev {
+            //  dimension "version"
+            //    applicationId "com.ahmedorabi.githubapp.dev"
+            //  buildConfigField "String", "BASE_URL", '"https://api.github.com/"'
+
+            //   versionNameSuffix ".deve"
+            //  versionCode 1
+
+        }
+        pro {
+            //  dimension "version"
+            //  applicationId "com.ahmedorabi.githubapp.pro"
+            //   buildConfigField "String", "BASE_URL", '"https://api.github.com/"'
+            //  versionCode 2
+
+            //  versionNameSuffix ".prod"
+        }
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+            java.srcDirs = ['src/main/java']
+            res.srcDirs = ['src/main/res']
+        }
+        dev {
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+            java.srcDirs = ['src/dev/java']
+            res.srcDirs = ['src/main/res']
+        }
+        pro {
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+            java.srcDirs = ['src/pro/java']
+            res.srcDirs = ['src/main/res']
+        }
+
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
