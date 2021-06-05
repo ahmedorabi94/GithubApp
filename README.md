@@ -2,7 +2,7 @@
 A simple app to search for repositories on GitHub and show a list of repos. 
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/7644709/120898751-91170e00-c62c-11eb-9b5d-2200e8339041.jpg" width="250px" /> 
+  <img src="https://user-images.githubusercontent.com/7644709/120898751-91170e00-c62c-11eb-9b5d-2200e8339041.jpg" width="300px" /> 
 </div>
 
 ## Built With 🛠
